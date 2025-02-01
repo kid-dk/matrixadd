@@ -32,7 +32,7 @@ async function calculate() {
     }
 
     try {
-        const response = await fetch('https://matrixadd.onrender.com/calculate', {
+        const response = await fetch('https://matrixadd.onrender.com/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
