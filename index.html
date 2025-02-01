@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Calculator</title>
+    <title>Matrix Inverse Calculator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Matrix Calculator</h1>
+    <h1>Matrix Inverse Calculator</h1>
     <div id="input-section">
         <input type="number" id="matrix-size" placeholder="Enter matrix size">
         <button onclick="createMatrixInput()">Create Matrix</button>
@@ -15,8 +15,10 @@
         <button onclick="calculate()" style="display:none;" id="calculate-btn">Calculate</button>
     </div>
     <div id="result-section">
-        <h2>Resultant Matrix</h2>
-        <div id="result-matrix"></div>
+        <h2>Inverse Matrix</h2>
+        <table id="result-matrix">
+            <!-- Resultant matrix will be displayed here -->
+        </table>
     </div>
     <script src="script.js"></script>
 </body>

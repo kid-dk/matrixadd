@@ -13,12 +13,12 @@ def calculate():
     data = request.json
     matrix = np.array(data['matrix'])
 
-    # Perform the calculation: matrix + matrix²
+    # Perform the calculation: inverse of the matrix
     try:
-        result = matrix + np.linalg.matrix_power(matrix, 2)
+        inverse = np.linalg.inv(matrix)  # Calculate the inverse
         return jsonify({
             'status': 'success',
-            'result': result.tolist()  # Convert numpy array to list for JSON serialization
+            'result': inverse.tolist()  # Convert numpy array to list for JSON serialization
         })
     except Exception as e:
         return jsonify({
