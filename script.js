@@ -1,3 +1,20 @@
+function createMatrixInput() {
+    const size = document.getElementById('matrix-size').value;
+    const container = document.getElementById('matrix-input');
+    container.innerHTML = '';
+    for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size; j++) {
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.id = `elem-${i}-${j}`;
+            input.placeholder = `Elem ${i+1}${j+1}`;
+            container.appendChild(input);
+        }
+        container.appendChild(document.createElement('br'));
+    }
+    document.getElementById('calculate-btn').style.display = 'block';
+}
+
 async function calculate() {
     const size = document.getElementById('matrix-size').value;
     let matrix = [];
@@ -15,7 +32,7 @@ async function calculate() {
     }
 
     try {
-        const response = await fetch('https://https://matrixadd.onrender.com/calculate', {
+        const response = await fetch('https://matrixadd.onrender.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
