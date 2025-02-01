@@ -8,7 +8,7 @@ This project allows you to perform matrix operations (adding a matrix and its sq
 - Perform matrix operations (matrix + matrix²) and display the result.
 
 ## Live Demo
-You can view the live webpage here: [Matrix Visualizer Live Demo](https://<your-github-username>.github.io/<repository-name>/)
+You can view the live webpage here: [Matrix Visualizer Live Demo](https://kid-dk.github.io/matrixadd/)
 
 Replace `<your-github-username>` and `<repository-name>` with your actual GitHub username and repository name.
 
