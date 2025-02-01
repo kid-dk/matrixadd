@@ -10,12 +10,10 @@ This project allows you to perform matrix operations (adding a matrix and its sq
 ## Live Demo
 You can view the live webpage here: [Matrix Visualizer Live Demo](https://kid-dk.github.io/matrixadd/)
 
-Replace `<your-github-username>` and `<repository-name>` with your actual GitHub username and repository name.
-
 ## How to Use
 
 ### Running the Python Script Locally
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-github-username>/<repository-name>.git
-   cd <repository-name>
+   git clone https://github.com/kid-dk/matrixadd.git
+   cd matrixadd
