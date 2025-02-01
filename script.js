@@ -1,20 +1,3 @@
-function createMatrixInput() {
-    const size = document.getElementById('matrix-size').value;
-    const container = document.getElementById('matrix-input');
-    container.innerHTML = '';
-    for (let i = 0; i < size; i++) {
-        for (let j = 0; j < size; j++) {
-            const input = document.createElement('input');
-            input.type = 'number';
-            input.id = `elem-${i}-${j}`;
-            input.placeholder = `Elem ${i+1}${j+1}`;
-            container.appendChild(input);
-        }
-        container.appendChild(document.createElement('br'));
-    }
-    document.getElementById('calculate-btn').style.display = 'block';
-}
-
 async function calculate() {
     const size = document.getElementById('matrix-size').value;
     let matrix = [];
@@ -32,7 +15,7 @@ async function calculate() {
     }
 
     try {
-        const response = await fetch('https://matrix-visualizer-backend.onrender.com/calculate', {
+        const response = await fetch('https://https://matrixadd.onrender.com/calculate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -44,11 +27,16 @@ async function calculate() {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        const result = await response.json();
-        displayResult(result);
+        const data = await response.json();
+
+        if (data.status === 'error') {
+            throw new Error(data.message);
+        }
+
+        displayResult(data.result);
     } catch (error) {
         console.error('Error:', error);
-        alert('An error occurred while calculating the result. Please try again.');
+        alert('An error occurred: ' + error.message);
     }
 }
 
