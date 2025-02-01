@@ -22,23 +22,33 @@ async function calculate() {
         let row = [];
         for (let j = 0; j < size; j++) {
             const value = parseFloat(document.getElementById(`elem-${i}-${j}`).value);
+            if (isNaN(value)) {
+                alert(`Please enter a valid number for element [${i+1},${j+1}].`);
+                return;
+            }
             row.push(value);
         }
         matrix.push(row);
     }
 
     try {
-        const response = await fetch('/https://matrixadd.onrender.com', {
+        const response = await fetch('https://matrix-visualizer-backend.onrender.com/calculate', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({ matrix: matrix }),
         });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         const result = await response.json();
         displayResult(result);
     } catch (error) {
         console.error('Error:', error);
+        alert('An error occurred while calculating the result. Please try again.');
     }
 }
 
